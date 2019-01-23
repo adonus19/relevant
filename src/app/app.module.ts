@@ -19,14 +19,15 @@ import { VideoService } from '../services/videos';
 import { SignupPage } from '../pages/signup/signup';
 import { AuthService } from '../services/auth';
 import { EventCreatePage } from '../pages/event-create/event-create';
+import { FirebaseConfig } from '../../firebase-config';
 
 firebase.initializeApp({
-  apiKey: "AIzaSyD3AfXM619SuX7NgYiUzwxkTR2m3tMT1qo",
-  authDomain: "relevant-calendar.firebaseapp.com",
-  databaseURL: "https://relevant-calendar.firebaseio.com",
-  projectId: "relevant-calendar",
-  storageBucket: "relevant-calendar.appspot.com",
-  messagingSenderId: "893644862969"
+  apiKey: FirebaseConfig.apiKey,
+  authDomain: FirebaseConfig.authDomain,
+  databaseURL: FirebaseConfig.databaseURL,
+  projectId: FirebaseConfig.projectId,
+  storageBucket: FirebaseConfig.storageBucket,
+  messagingSenderId: FirebaseConfig.messagingSenderId
 })
 
 @NgModule({
