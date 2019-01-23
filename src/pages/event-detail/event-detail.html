@@ -1,0 +1,46 @@
+<ion-header>
+
+  <ion-navbar color="dark">
+    <ion-title>{{ event.title }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <img [src]="event.imageUrl">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <p>{{ event.description }}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <p>Day: {{ event.date }}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <p>From: {{ displayStartTime }} {{ startAMPM }} - {{ displayEndTime }} {{ endAMPM }}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <p>Where: {{ event.location }}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button ion-button block (click)="editEvent()">Edit Event</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button block (click)="close()">Close</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

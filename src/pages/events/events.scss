@@ -1,0 +1,19 @@
+page-events {
+  ion-card {
+    position: relative;
+    margin-top: 100% !important;
+    border-radius: 25px !important;
+    font-family: 'Raleway', 'Times New Roman', Times, serif;
+  }
+  .eventsPageBackground {
+    background: #8c8c8c;
+  }
+
+  ion-slide {
+    background-position: center center;
+    background-size: cover;
+    color: white;
+    margin: 0;
+    padding: 0;
+  }
+}

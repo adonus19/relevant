@@ -1,0 +1,36 @@
+<ion-header>
+
+  <ion-navbar text-center color="dark">
+    <ion-buttons end *ngIf="isAdmin">
+      <button ion-button icon-only (click)="newEvent()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Events</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="eventsPageBackground">
+  <!-- <ion-card *ngFor="let event of events; let i = index" (click)="showEvent(event)">
+    <img [src]="event.imageUrl">
+    <ion-card-content>
+      <ion-card-title>{{ event.title }}</ion-card-title>
+      <p>{{ event.description }}</p>
+      <p>{{ event.date }}</p>
+    </ion-card-content>
+  </ion-card> -->
+
+  <ion-slides pager="true" loop="true" class="slider-slide">
+    <ion-slide *ngFor="let event of events; let i = index" [ngStyle]="getImgUrl(event.imageUrl)" (click)="showEvent(event)"
+      class="thumb-img">
+      <ion-card padding round color="danger">
+        <ion-card-content text-center>
+          <h1>{{ event.title }}</h1>
+          <p>{{ event.description }}</p>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

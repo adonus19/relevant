@@ -1,0 +1,45 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ mode }} Event</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form #f="ngForm" (ngSubmit)="submit(f)">
+    <ion-list>
+      <img [src]="imageUrl" *ngIf="imageUrl">
+      <button ion-button block color="secondary" type="button" (click)="getImage()">Select Image from Gallery</button>
+      <ion-item>
+        <ion-label floating>Title</ion-label>
+        <ion-input type="text" name="title" [ngModel]="eventTitle" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Description</ion-label>
+        <ion-textarea name="description" [ngModel]="eventDescription" required></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Select Date</ion-label>
+        <ion-datetime displayFormat="MM-DD-YYYY" name="date" [ngModel]="eventDate" required></ion-datetime>
+        <!-- <ion-input type="date" formControlName="date"></ion-input> -->
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Start Time</ion-label>
+        <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" name="timeStart" [ngModel]="startTime" required></ion-datetime>
+        <!-- <ion-input type="date" formControlName="date"></ion-input> -->
+      </ion-item>
+      <ion-item>
+        <ion-label floating>End Time</ion-label>
+        <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" name="timeEnd" [ngModel]="endTime" required></ion-datetime>
+        <!-- <ion-input type="date" formControlName="date"></ion-input> -->
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Location</ion-label>
+        <ion-input type="text" name="location" [ngModel]="eventLocation" required></ion-input>
+      </ion-item>
+    </ion-list>
+    <button ion-button block color="secondary" type="submit" [disabled]="!f.valid || imageUrl === ''">Finished!</button>
+  </form>
+</ion-content>

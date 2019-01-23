@@ -1,0 +1,35 @@
+<ion-header>
+
+  <ion-navbar color="dark">
+    <ion-buttons start>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item text-center no-lines color="dark">
+    <img src="../../assets/icon/relevant-logo">
+  </ion-item>
+  <ion-grid style="width: 75%">
+    <form #f="ngForm" (ngSubmit)="login(f)">
+      <ion-row class="row-style">
+        <ion-icon name="mail" color="dark"></ion-icon>
+        <ion-input type="email" placeholder="email" [ngModel]="email" name="email" color="dark" required></ion-input>
+      </ion-row>
+      <ion-row class="row-style">
+        <ion-icon color="dark" name="key"></ion-icon>
+        <ion-input type="password" placeholder="password" [ngModel]="password" name="password" required></ion-input>
+      </ion-row>
+      <ion-row>
+        <button ion-button block round outline color="light" style="margin-top: 20px;" type="submit" [disabled]="!f.valid">Login</button>
+      </ion-row>
+    </form>
+  </ion-grid>
+  <button ion-button block clear color="light" (click)="goToSignup()">Don't have an account? Sign Up</button>
+</ion-content>

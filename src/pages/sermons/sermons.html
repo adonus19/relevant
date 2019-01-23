@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-buttons start>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      <img src="https://i.vimeocdn.com/portrait/13056633_75x75">
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let video of currentVideos">
+    <!-- <img [src]=video.vidImg> -->
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <!-- below this works -->
+          <iframe [src]="video.link" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen [ngStyle]="{height: getHeight()}">
+          </iframe>
+          <!-- the below code works -->
+          <!-- <iframe src="https://player.vimeo.com/video/311822492" frameborder="0" webkitallowfullscreen
+            mozallowfullscreen allowfullscreen>
+          </iframe> -->
+        </ion-item>
+      </ion-list>
+      <ion-card-title>
+        {{ video.name }}
+      </ion-card-title>
+      <p>{{ video.description }}</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-infinite-scroll (ionInfinite)="loadMorePosts($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
