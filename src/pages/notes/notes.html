@@ -1,12 +1,11 @@
-<!--
-  Generated template for the NotesPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar text-center color="dark">
+    <ion-buttons end>
+      <button ion-button icon-only (click)="newNote()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-title>Notes</ion-title>
   </ion-navbar>
 
@@ -14,5 +13,20 @@
 
 
 <ion-content padding>
-
+  <ion-list>
+    <ion-item-sliding *ngFor="let note of notes; let i = index">
+      <ion-item (click)="viewNote(note, i)">
+        <h3>{{ note.note }}</h3>
+        <small>
+          <p>{{ note.date }}</p>
+        </small>
+      </ion-item>
+      <ion-item-options>
+        <button ion-button color="danger" (click)="deleteNote(i)">
+          <ion-icon name="trash"></ion-icon>
+          Delete
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>

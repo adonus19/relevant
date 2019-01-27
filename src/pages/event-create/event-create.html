@@ -40,6 +40,20 @@
         <ion-input type="text" name="location" [ngModel]="eventLocation" required></ion-input>
       </ion-item>
     </ion-list>
-    <button ion-button block color="secondary" type="submit" [disabled]="!f.valid || imageUrl === ''">Finished!</button>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <button ion-button block color="primary" type="button" navPop>Cancel</button>
+        </ion-col>
+        <ion-col>
+          <button ion-button block color="secondary" type="submit" [disabled]="!f.valid || imageUrl === ''">Finished!</button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col *ngIf="mode === 'Edit'">
+          <button ion-button block color="danger" type="button" (click)="deleteEvent()">DELETE</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </form>
 </ion-content>

@@ -15,7 +15,9 @@ export class AuthService {
   }
 
   getActiveUser() {
-    return firebase.auth().currentUser;
+    if (firebase.auth().currentUser) {
+      return firebase.auth().currentUser;
+    }
   }
 
   isAdmin() {

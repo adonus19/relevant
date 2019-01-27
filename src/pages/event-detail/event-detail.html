@@ -35,7 +35,7 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col>
+      <ion-col *ngIf="isAdmin">
         <button ion-button block (click)="editEvent()">Edit Event</button>
       </ion-col>
       <ion-col>

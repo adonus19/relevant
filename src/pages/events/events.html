@@ -21,9 +21,12 @@
       <p>{{ event.date }}</p>
     </ion-card-content>
   </ion-card> -->
-
-  <ion-slides pager="true" loop="true" class="slider-slide">
-    <ion-slide *ngFor="let event of events; let i = index" [ngStyle]="getImgUrl(event.imageUrl)" (click)="showEvent(event)"
+  <!-- logic for pulldown refresh -->
+  <ion-refresher (ionRefresh)="refresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-slides pager="true" class="slider-slide">
+    <ion-slide *ngFor="let event of events; let i = index" [ngStyle]="getImgUrl(event.imageUrl)" (click)="showEvent(event, i)"
       class="thumb-img">
       <ion-card padding round color="danger">
         <ion-card-content text-center>

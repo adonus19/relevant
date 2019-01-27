@@ -13,20 +13,32 @@ export class EventDetailPage {
   endAMPM: string = 'PM'
   displayStartTime: string;
   displayEndTime: string;
+  isAdmin = false;
+  index: number;
 
   constructor(private navCtrl: NavController, private navParams: NavParams, private viewCtrl: ViewController) {
     this.event = this.navParams.get('event');
+    this.isAdmin = this.navParams.get('admin');
+    this.index = this.navParams.get('index');
     if (this.event.timeStart < '11:59') {
       this.startAMPM = 'AM';
-      const splitTime = this.event.timeStart.split('');
-      splitTime.shift();
-      this.displayStartTime = `${splitTime[0]}:${splitTime[2]}${splitTime[3]}`;
+      if (this.event.timeStart > '09:59') {
+        this.displayStartTime = this.event.timeStart;
+      } else {
+        const splitTime = this.event.timeStart.split('');
+        splitTime.shift();
+        this.displayStartTime = `${splitTime[0]}:${splitTime[2]}${splitTime[3]}`;
+      }
     }
     if (this.event.timeEnd < '11:59') {
       this.endAMPM = 'AM';
-      const splitTime = this.event.timeEnd.split('');
-      splitTime.shift();
-      this.displayEndTime = `${splitTime[0]}:${splitTime[2]}${splitTime[3]}`;
+      if (this.event.timeEnd < '09:59') {
+        const splitTime = this.event.timeEnd.split('');
+        splitTime.shift();
+        this.displayEndTime = `${splitTime[0]}:${splitTime[2]}${splitTime[3]}`;
+      } else {
+        this.displayEndTime = this.event.timeEnd;
+      }
     }
     if (this.event.timeStart > '12:59') {
       const splitTime = this.event.timeStart.split(':');
@@ -40,12 +52,9 @@ export class EventDetailPage {
     }
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad EventDetailPage');
-  }
-
   editEvent() {
-    this.navCtrl.push(EventCreatePage, { mode: 'Edit', event: this.event });
+    this.viewCtrl.dismiss();
+    this.navCtrl.push(EventCreatePage, { mode: 'Edit', event: this.event, index: this.index });
   }
 
   close() {

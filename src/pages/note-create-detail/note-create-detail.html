@@ -1,0 +1,19 @@
+<ion-header>
+
+  <ion-navbar text-center color="dark">
+    <ion-title>{{ date }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-textarea placeholder="Write Something..." #input [(ngModel)]="note" autocomplete="on" autocorrect="on"
+          (keyup)="resize()"></ion-textarea>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

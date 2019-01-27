@@ -5,7 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import firebase from 'firebase';
 import { Camera } from '@ionic-native/camera';
-import { DatePicker } from '@ionic-native/date-picker';
+import { IonicStorageModule } from '@ionic/storage';
 
 import { MyApp } from './app.component';
 import { SermonsPage } from '../pages/sermons/sermons';
@@ -20,6 +20,8 @@ import { SignupPage } from '../pages/signup/signup';
 import { AuthService } from '../services/auth';
 import { EventCreatePage } from '../pages/event-create/event-create';
 import { FirebaseConfig } from '../../firebase-config';
+import { NoteCreateDetailPage } from '../pages/note-create-detail/note-create-detail';
+import { NotesService } from '../services/notes';
 
 firebase.initializeApp({
   apiKey: FirebaseConfig.apiKey,
@@ -40,11 +42,13 @@ firebase.initializeApp({
     LoginPage,
     EventDetailPage,
     SignupPage,
-    EventCreatePage
+    EventCreatePage,
+    NoteCreateDetailPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -56,7 +60,8 @@ firebase.initializeApp({
     LoginPage,
     EventDetailPage,
     SignupPage,
-    EventCreatePage
+    EventCreatePage,
+    NoteCreateDetailPage
   ],
   providers: [
     StatusBar,
@@ -66,7 +71,7 @@ firebase.initializeApp({
     VideoService,
     AuthService,
     Camera,
-    DatePicker
+    NotesService
   ]
 })
 export class AppModule { }
