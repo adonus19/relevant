@@ -11,6 +11,7 @@ export class TabsPage {
   sermonsPage = SermonsPage;
   eventsPage = EventsPage;
   notesPage = NotesPage;
+  givingPage: string = 'GivingPage';
 
   constructor() {
   }

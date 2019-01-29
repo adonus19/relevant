@@ -1,3 +1,22 @@
 page-tabs {
  background-color: #222;
+ .ion-md-add, .ion-ios-add-outline {
+   border: 1px white solid;
+   border-radius: 5px;
+   min-width: 30px !important;
+  }
+
+  .tab-button[aria-selected=true] .ion-ios-add {
+   background-color: #ffbb00 !important;
+   color: black !important;
+   border-radius: 5px !important;
+   min-width: 30px !important;
+  }
+  .tab-button[aria-selected=true] .ion-md-add {
+    border: 0px black solid !important;
+    background-color: #ffbb00 !important;
+    color: black !important;
+    border-radius: 5px !important;
+    min-width: 30px !important;
+  }
 }

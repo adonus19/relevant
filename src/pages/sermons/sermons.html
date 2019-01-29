@@ -12,20 +12,16 @@
 </ion-header>
 
 <ion-content>
-  <ion-card *ngFor="let video of currentVideos">
-    <!-- <img [src]=video.vidImg> -->
+  <ion-card *ngFor="let video of currentVideos" (click)="navToSermon(video)">
+    <img [src]=video.vidImg>
     <ion-card-content>
-      <ion-list>
-        <ion-item>
-          <!-- below this works -->
-          <iframe [src]="video.link" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen [ngStyle]="{height: getHeight()}">
-          </iframe>
-          <!-- the below code works -->
-          <!-- <iframe src="https://player.vimeo.com/video/311822492" frameborder="0" webkitallowfullscreen
-            mozallowfullscreen allowfullscreen>
+      <!-- <ion-list>
+        <ion-item> -->
+      <!-- below this works -->
+      <!-- <iframe [src]="video.link" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen [ngStyle]="{height: getHeight()}">
           </iframe> -->
-        </ion-item>
-      </ion-list>
+      <!-- </ion-item>
+      </ion-list> -->
       <ion-card-title>
         {{ video.name }}
       </ion-card-title>

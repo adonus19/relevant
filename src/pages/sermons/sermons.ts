@@ -11,7 +11,6 @@ import { AuthService } from '../../services/auth';
   templateUrl: 'sermons.html'
 })
 export class SermonsPage implements OnInit {
-  isBrowser = true;
   isTablet = false
   currentVideos: Video[];
   cursor: number = 0;
@@ -22,7 +21,6 @@ export class SermonsPage implements OnInit {
     const platforms = this.platform.platforms();
 
     if (platforms.indexOf('tablet') > -1) {
-      // this.isBrowser = false;
       this.isTablet = true;
     }
   }
@@ -43,13 +41,16 @@ export class SermonsPage implements OnInit {
       this.currentVideos.push(video);
     }
     this.cursor = this.currentVideos.length - 1;
-    console.log(`length?`, this.cursor);
     let increase = this.cursor - this.increment;
     if (increase < 10) {
       event.enable(false);
     } else {
       event.complete();
     }
+  }
+
+  navToSermon(video: Video) {
+    this.navCtrl.push('VideoPage', { video: video, isTablet: this.isTablet });
   }
 
 }

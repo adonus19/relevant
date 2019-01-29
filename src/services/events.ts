@@ -6,7 +6,6 @@ import { LoadingController, AlertController } from "ionic-angular";
 
 @Injectable()
 export class EventsService {
-  // TODO: Add local storage ability
 
   private events: any[] = [
     // { title: 'Youth Night', description: 'Youth Event', date: '2019-01-23', timeStart: '06:00', timeEnd: '08:00', location: 'YMCA', imageUrl: '../assets/DSC_0163.JPG', id: 'kljhasdflkjhasdf' },
@@ -97,7 +96,6 @@ export class EventsService {
       location: form.location
     })
       .then(async doc => {
-        console.log(imageUrl.split(','));
         if (imageUrl.split(',')[0] === 'data:image/png;base64') {
           await this.deleteAndUploadNewPic(eventId, imageUrl);
         }

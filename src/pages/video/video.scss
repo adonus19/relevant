@@ -1,0 +1,24 @@
+page-video {
+  ion-content {
+    .item.item-block {
+      background-color: map-get( $colors, light );
+    }
+    .scroll-content {
+      background-color: map-get( $colors, light );
+    }
+    .card-title, p {
+      font-family: 'Raleway', 'Times New Roman', Times, serif;
+    }
+    .vidImg {
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+    iframe {
+      width: 100%;
+    }
+  }
+  .item-inner {
+    height: 25%;
+  }
+}
